@@ -7,7 +7,7 @@ const HeroSection = () => {
                         Employment Agency
                     </h1>
                     <p className="mt-6 text-lg text-semibold text-primary-secondary-800 leading-8">
-                        PT. SentosaKarya Aditama adalah perusahaan yang berfokus pada penempatan tenaga kerja migran Indonesia di luar negeri. Kami berdedikasi untuk memberikan layanan terbaik dan memastikan kesejahteraan tenaga kerja kami.
+                        PT. SENTOSAKARYA ADITAMA adalah perusahaan yang berfokus pada penempatan tenaga kerja migran Indonesia di luar negeri. Kami berdedikasi untuk memberikan layanan terbaik dan memastikan kesejahteraan tenaga kerja kami.
                     </p>
                     <div className="mt-10 flex items-center justify-center gap-x-6">
                         <a

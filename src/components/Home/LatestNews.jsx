@@ -10,7 +10,7 @@ const LatestNews = () => {
                         APA SAJA BERITA TERBARU
                     </p>
                     <p className="mt-4 text-lg leading-8 text-gray-600">
-                        Informasi terbaru seputar industri penempatan pekerja migran, regulasi terkini, kasus sukses pekerja migran, dan perkembangan Kami
+                        Informasi terbaru seputar industri penempatan Pekerja Migran Indonesia, regulasi terkini, kasus sukses Pekerja Migran Indonesa, dan perkembangan Kami
                     </p>
                 </div>
                 <div className="mx-auto mt-10 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 border-t border-gray-200 pt-10 sm:mt-16 sm:pt-16 lg:mx-0 lg:max-w-none lg:grid-cols-3">

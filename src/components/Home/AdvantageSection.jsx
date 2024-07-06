@@ -9,13 +9,13 @@ const features = [
     {
         name: 'Penempatan Luas',
         description:
-            'Kami memiliki jaringan yang luas di beberapa negara tujuan populer seperti Taiwan, Jepang, Hongkong, Korea Selatan, Malaysia, dan Singapura, memungkinkan kami untuk menawarkan berbagai pilihan pekerjaan sesuai dengan keterampilan dan kebutuhan pekerja migran.',
+            'Kami memiliki jaringan yang luas di beberapa negara tujuan populer seperti Taiwan, Jepang, Hongkong, Korea Selatan, Malaysia, dan Singapura, memungkinkan kami untuk menawarkan berbagai pilihan pekerjaan sesuai dengan keterampilan dan kebutuhan Pekerja Migran Indonesia.',
         icon: GlobeAsiaAustraliaIcon,
     },
     {
         name: 'Terlindungi',
         description:
-            'Sebagai mitra BP2MI dan KEMNAKER, kami memberikan perlindungan hukum yang komprehensif bagi pekerja migran, memastikan hak-hak mereka terlindungi secara adil dan sesuai dengan regulasi yang berlaku.',
+            'Sebagai mitra BP2MI dan KEMNAKER, kami memberikan perlindungan hukum yang komprehensif bagi Pekerja Migran Indonesia, memastikan hak-hak mereka terlindungi secara adil dan sesuai dengan regulasi yang berlaku.',
         icon: ShieldCheckIcon,
     },
     {
@@ -27,7 +27,7 @@ const features = [
     {
         name: 'Keamanan',
         description:
-            'Kami memastikan bahwa setiap proses penempatan kerja dilakukan dengan mematuhi standar keamanan tertinggi, menjaga kesejahteraan dan keselamatan pekerja migran.',
+            'Kami memastikan bahwa setiap proses penempatan kerja dilakukan dengan mematuhi standar keamanan tertinggi, menjaga kesejahteraan dan keselamatan Pekerja Migran Indonesia.',
         icon: LockClosedIcon,
     }
 ];
@@ -42,7 +42,7 @@ const AdvantageSection = () => {
                         KENAPA HARUS MEMILIH KAMI
                     </p>
                     <p className="mt-4 text-lg leading-8 text-gray-600">
-                        PT. SentosaKarya Aditama merupakan pilihan terbaik untuk layanan penempatan pekerja migran Indonesia ke luar negeri.
+                        PT. SENTOSAKARYA ADITAMA merupakan pilihan terbaik untuk layanan penempatan Pekerja Migran Indonesia ke luar negeri.
                     </p>
                 </div>
                 <div className="mx-auto mt-10 max-w-2xl border-t border-gray-200 pt-10 lg:max-w-4xl">
