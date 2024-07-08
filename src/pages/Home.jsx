@@ -1,6 +1,5 @@
 import React from 'react';
 import Navbar from '../components/Navbar';
-import passengerGettingAirplaneVideo from '../assets/video-penerbangan-welder-koreaselatan.mp4';
 import HeroSection from '../components/Home/HeroSection';
 import AdvantageSection from '../components/Home/AdvantageSection';
 import SupervisedBy from '../components/Home/SupervisedBy';
@@ -13,15 +12,6 @@ import JobListSection from '../components/Home/JobListSection';
 const Home = () => {
     return (
         <div className="App">
-            {/* Video Background */}
-            <video className="absolute inset-0 w-full h-full object-cover z-0" autoPlay loop muted playsInline>
-                <source src={passengerGettingAirplaneVideo} type="video/mp4" />
-                Your browser does not support the video tag.
-            </video>
-
-            {/* Semi Transparent White Background untuk Hero Section */}
-            <div className="absolute inset-0 bg-white opacity-70 z-10" /> 
-
             {/* Navbar */}
             <header className="absolute inset-x-0 top-0 z-50">
                 <Navbar/>
