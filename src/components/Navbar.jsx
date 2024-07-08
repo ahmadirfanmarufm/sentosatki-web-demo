@@ -277,7 +277,7 @@ const Navbar = () => {
                             <Disclosure as="div" className="space-y-1">
                                 <a 
                                     href="/registrasi" 
-                                    className='text-sm font-semibold leading-6 text-gray-900 hover:text-primary-secondary-800'
+                                    className='flex items-center justify-between w-full py-2 text-sm font-medium text-left text-gray-900 rounded-lg hover:bg-gray-50'
                                 >
                                     Registrasi
                                 </a>
