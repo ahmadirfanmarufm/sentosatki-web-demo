@@ -15,14 +15,10 @@ const Home = () => {
     return (
         <div className="App">
             {/* Video Background */}
-            <video
-                src={passengerGettingAirplaneVideo}
-                className="absolute inset-0 w-full h-full object-cover z-0"
-                autoPlay
-                loop
-                muted
-                style={{ objectFit: 'cover' }}
-            />
+            <video className="absolute inset-0 w-full h-full object-cover z-0" autoPlay loop muted>
+                <source src={passengerGettingAirplaneVideo} type="video/mp4" />
+                Your browser does not support the video tag.
+            </video>
 
             {/* Semi Transparent White Background untuk Hero Section */}
             <div className="absolute inset-0 bg-white opacity-70 z-10" /> 
