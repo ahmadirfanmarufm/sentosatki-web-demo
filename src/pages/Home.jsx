@@ -11,11 +11,10 @@ import CategorySection from '../components/Home/CategorySection';
 import JobListSection from '../components/Home/JobListSection';
 
 const Home = () => {
-
     return (
         <div className="App">
             {/* Video Background */}
-            <video className="absolute inset-0 w-full h-full object-cover z-0" autoPlay loop muted>
+            <video className="absolute inset-0 w-full h-full object-cover z-0" autoPlay loop muted playsInline>
                 <source src={passengerGettingAirplaneVideo} type="video/mp4" />
                 Your browser does not support the video tag.
             </video>
