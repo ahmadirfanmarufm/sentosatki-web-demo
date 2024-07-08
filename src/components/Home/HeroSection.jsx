@@ -7,7 +7,7 @@ const HeroSection = () => {
                         Employment Agency
                     </h1>
                     <p className="mt-6 text-lg text-semibold text-primary-secondary-800 leading-8">
-                        PT. SENTOSAKARYA ADITAMA adalah perusahaan yang berfokus pada penempatan Tenaga Kerja Migran Indonesia di luar negeri. Kami berdedikasi untuk memberikan layanan terbaik dan memastikan kesejahteraan tenaga kerja kami.
+                        PT. SENTOSAKARYA ADITAMA adalah perusahaan yang berfokus pada Penempatan Pekerja Migran Indonesia ke Luar Negeri. Kami berdedikasi untuk memberikan layanan terbaik dan memastikan kesejahteraan tenaga kerja kami.
                     </p>
                     <div className="mt-10 flex items-center justify-center gap-x-6">
                         <a
@@ -16,7 +16,7 @@ const HeroSection = () => {
                         >
                             Daftar Diri Kamu
                         </a>
-                        <a href="/contact" className="text-sm font-semibold text-primary-secondary-800">
+                        <a href="/kontak" className="text-sm font-semibold text-primary-secondary-800">
                             Temui Kami <span aria-hidden="true">→</span>
                         </a>
                     </div>

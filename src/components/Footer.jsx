@@ -96,7 +96,7 @@ const FooterSection = () => {
                     </a>
                 </p>
                 <p className="mb-4">
-                    <a className="text-gray-400 text-semibold flex items-center justify-center md:justify-start hover:text-gray-300" target="_blank" href="https://sentosa-group.com/">
+                    <a className="text-gray-400 text-semibold flex items-center justify-center md:justify-start hover:text-gray-300" target="_blank" href="https://lpksentosa.com/">
                         <svg 
                         xmlns="http://www.w3.org/2000/svg" 
                         width="16" 
@@ -110,7 +110,7 @@ const FooterSection = () => {
                     </a>
                 </p>
                 <p className="mb-4">
-                    <a className="text-gray-400 text-semibold flex items-center justify-center md:justify-start hover:text-gray-300" target="_blank" href="https://sentosa-group.com/">
+                    <a className="text-gray-400 text-semibold flex items-center justify-center md:justify-start hover:text-gray-300" target="_blank" href="https://sentosaksp.com/">
                         <svg 
                         xmlns="http://www.w3.org/2000/svg" 
                         width="16" 

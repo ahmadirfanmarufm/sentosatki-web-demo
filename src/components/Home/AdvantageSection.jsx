@@ -15,13 +15,13 @@ const features = [
     {
         name: 'Terlindungi',
         description:
-            'Sebagai mitra BP2MI dan KEMNAKER, kami memberikan perlindungan hukum yang komprehensif bagi Pekerja Migran Indonesia, memastikan hak-hak mereka terlindungi secara adil dan sesuai dengan regulasi yang berlaku.',
+            'Sebagai mitra KEMNAKER dan BP2MI, kami memberikan perlindungan hukum yang komprehensif bagi Pekerja Migran Indonesia, memastikan hak-hak mereka terlindungi secara adil dan sesuai dengan regulasi yang berlaku.',
         icon: ShieldCheckIcon,
     },
     {
         name: 'Terpercaya',
         description:
-            'Dibangun atas dasar pengalaman panjang dan reputasi yang kuat, kami merupakan partner yang dapat dipercaya dalam memenuhi kebutuhan penempatan tenaga kerja migran.',
+            'Di terpercaya berdiri sejak tahun 1999 dengan gaya manajemen moderen sesuai perkembangan jaman. Kami merupakan partner yang dapat dipercaya dalam memenuhi kebutuhan Penempatan Pekerja Migran.',
         icon: HandThumbUpIcon,
     },
     {
