@@ -1,9 +1,11 @@
+import React from 'react';
+
 const HeroSection = () => {
     return (
-        <div className="relative flex items-center justify-center h-screen px-6 pt-14 lg:px-8 z-20">
+        <div className="relative flex items-center justify-center min-h-screen px-6 pt-14 lg:px-8 z-20">
             <div className="mx-auto max-w-2xl text-center text-white">
                 <div>
-                    <h1 className="text-4xl text-primary-400 font-bold tracking-tight sm:text-6xl uppercase">
+                    <h1 className="text-4xl sm:text-6xl text-primary-400 font-bold tracking-tight uppercase leading-tight">
                         Employment Agency
                     </h1>
                     <p className="mt-6 text-lg text-semibold text-primary-secondary-800 leading-8">
