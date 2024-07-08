@@ -42,7 +42,7 @@ const AdvantageSection = () => {
                         KENAPA HARUS MEMILIH KAMI
                     </p>
                     <p className="mt-4 text-lg leading-8 text-gray-600">
-                        PT. SENTOSAKARYA ADITAMA merupakan pilihan terbaik untuk layanan penempatan Pekerja Migran Indonesia ke luar negeri.
+                        PT. SENTOSAKARYA ADITAMA merupakan pilihan terbaik untuk layanan Penempatan Pekerja Migran Indonesia ke Luar Negeri.
                     </p>
                 </div>
                 <div className="mx-auto mt-10 max-w-2xl border-t border-gray-200 pt-10 lg:max-w-4xl">

@@ -185,113 +185,123 @@ const Navbar = () => {
             <Transition.Root show={mobileMenuOpen} as={Fragment}>
                 <Dialog as="div" className="lg:hidden" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
                     <div className="fixed inset-0 z-50 bg-black bg-opacity-25" />
-                    <DialogPanel className="fixed inset-y-0 left-0 z-50 w-full max-w-xs overflow-y-auto bg-white shadow-lg ring-1 ring-black ring-opacity-5">
-                        <div className="flex items-center justify-between p-4">
-                            <a href="#" className="-m-1.5 p-1.5">
-                                <img className="h-14 w-auto" src={Logo} alt="Logo" />
-                            </a>
-                            <button
-                                type="button"
-                                className="-m-2.5 rounded-md p-2.5 text-gray-700"
-                                onClick={() => setMobileMenuOpen(false)}
-                            >
-                                <span className="sr-only">Close menu</span>
-                                <XMarkIcon className="h-6 w-6" aria-hidden="true" />
-                            </button>
-                        </div>
-                        <div className="space-y-2 px-4">
-                            <Disclosure as="div" className="space-y-1">
+                    <Transition.Child
+                        as={Fragment}
+                        enter="transition ease-in-out duration-300"
+                        enterFrom="-translate-x-full"
+                        enterTo="translate-x-0"
+                        leave="transition ease-in-out duration-300"
+                        leaveFrom="translate-x-0"
+                        leaveTo="translate-x-full"
+                    >
+                        <DialogPanel className="fixed inset-y-0 left-0 z-50 w-full max-w-xs overflow-y-auto bg-white shadow-lg ring-1 ring-black ring-opacity-5">
+                            <div className="flex items-center justify-between p-4">
+                                <a href="#" className="-m-1.5 p-1.5">
+                                    <img className="h-14 w-auto" src={Logo} alt="Logo" />
+                                </a>
+                                <button
+                                    type="button"
+                                    className="-m-2.5 rounded-md p-2.5 text-gray-700"
+                                    onClick={() => setMobileMenuOpen(false)}
+                                >
+                                    <span className="sr-only">Close menu</span>
+                                    <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+                                </button>
+                            </div>
+                            <div className="space-y-2 px-4">
+                                <Disclosure as="div" className="space-y-1">
+                                    <a
+                                        href="/"
+                                        className="flex items-center justify-between w-full py-2 text-sm font-medium text-left text-gray-900 rounded-lg hover:bg-gray-50"
+                                    >
+                                        Home
+                                    </a>
+                                </Disclosure>
+                                <Disclosure as="div" className="space-y-1">
+                                    <a
+                                        href="/"
+                                        className="flex items-center justify-between w-full py-2 text-sm font-medium text-left text-gray-900 rounded-lg hover:bg-gray-50"
+                                    >
+                                        Tentang Kami
+                                    </a>
+                                </Disclosure>
+                                <Disclosure as="div" className="space-y-1">
+                                    {({ open }) => (
+                                        <>
+                                            <DisclosureButton className="flex items-center justify-between w-full py-2 text-sm font-medium text-left text-gray-900 rounded-lg hover:bg-gray-50">
+                                                <span>Galeri</span>
+                                                <ChevronDownIcon
+                                                    className={classNames(open ? 'rotate-180' : '', 'h-5 w-5')}
+                                                    aria-hidden="true"
+                                                />
+                                            </DisclosureButton>
+                                            <DisclosurePanel className="space-y-1">
+                                                {galeri.map((item) => (
+                                                    <DisclosureButton
+                                                        key={item.name}
+                                                        as="a"
+                                                        href={item.href}
+                                                        className="flex w-full items-center justify-between pl-6 pr-2 text-sm text-gray-600 hover:bg-gray-50"
+                                                    >
+                                                        {item.name}
+                                                    </DisclosureButton>
+                                                ))}
+                                            </DisclosurePanel>
+                                        </>
+                                    )}
+                                </Disclosure>
+                                <Disclosure as="div" className="space-y-1">
+                                    {({ open }) => (
+                                        <>
+                                            <DisclosureButton className="flex items-center justify-between w-full py-2 text-sm font-medium text-left text-gray-900 rounded-lg hover:bg-gray-50">
+                                                <span>Berita/Agenda</span>
+                                                <ChevronDownIcon
+                                                    className={classNames(open ? 'rotate-180' : '', 'h-5 w-5')}
+                                                    aria-hidden="true"
+                                                />
+                                            </DisclosureButton>
+                                            <DisclosurePanel className="space-y-1">
+                                                {beritaAgenda.map((item) => (
+                                                    <DisclosureButton
+                                                        key={item.name}
+                                                        as="a"
+                                                        href={item.href}
+                                                        className="flex w-full items-center justify-between pl-6 pr-2 text-sm text-gray-600 hover:bg-gray-50"
+                                                    >
+                                                        {item.name}
+                                                    </DisclosureButton>
+                                                ))}
+                                            </DisclosurePanel>
+                                        </>
+                                    )}
+                                </Disclosure>
+                                <Disclosure as="div" className="space-y-1">
+                                    <a
+                                        href="/kontak"
+                                        className="flex items-center justify-between w-full py-2 text-sm font-medium text-left text-gray-900 rounded-lg hover:bg-gray-50"
+                                    >
+                                        Kontak
+                                    </a>
+                                </Disclosure>
+                                <Disclosure as="div" className="space-y-1">
+                                    <a 
+                                        href="/registrasi" 
+                                        className='flex items-center justify-between w-full py-2 text-sm font-medium text-left text-gray-900 rounded-lg hover:bg-gray-50'
+                                    >
+                                        Registrasi
+                                    </a>
+                                </Disclosure>
+                            </div>
+                            <div className="p-4">
                                 <a
-                                    href="/"
-                                    className="flex items-center justify-between w-full py-2 text-sm font-medium text-left text-gray-900 rounded-lg hover:bg-gray-50"
+                                    href="/login"
+                                    className="block w-full py-2.5 text-center text-sm font-medium text-white bg-primary-secondary-800 rounded-lg hover:bg-primary-secondary-900"
                                 >
-                                    Home
+                                    Log in <span aria-hidden="true">&rarr;</span>
                                 </a>
-                            </Disclosure>
-                            <Disclosure as="div" className="space-y-1">
-                                <a
-                                    href="/"
-                                    className="flex items-center justify-between w-full py-2 text-sm font-medium text-left text-gray-900 rounded-lg hover:bg-gray-50"
-                                >
-                                    Tentang Kami
-                                </a>
-                            </Disclosure>
-                            <Disclosure as="div" className="space-y-1">
-                                {({ open }) => (
-                                    <>
-                                        <DisclosureButton className="flex items-center justify-between w-full py-2 text-sm font-medium text-left text-gray-900 rounded-lg hover:bg-gray-50">
-                                            <span>Galeri</span>
-                                            <ChevronDownIcon
-                                                className={classNames(open ? 'rotate-180' : '', 'h-5 w-5')}
-                                                aria-hidden="true"
-                                            />
-                                        </DisclosureButton>
-                                        <DisclosurePanel className="space-y-1">
-                                            {galeri.map((item) => (
-                                                <DisclosureButton
-                                                    key={item.name}
-                                                    as="a"
-                                                    href={item.href}
-                                                    className="flex w-full items-center justify-between pl-6 pr-2 text-sm text-gray-600 hover:bg-gray-50"
-                                                >
-                                                    {item.name}
-                                                </DisclosureButton>
-                                            ))}
-                                        </DisclosurePanel>
-                                    </>
-                                )}
-                            </Disclosure>
-                            <Disclosure as="div" className="space-y-1">
-                                {({ open }) => (
-                                    <>
-                                        <DisclosureButton className="flex items-center justify-between w-full py-2 text-sm font-medium text-left text-gray-900 rounded-lg hover:bg-gray-50">
-                                            <span>Berita/Agenda</span>
-                                            <ChevronDownIcon
-                                                className={classNames(open ? 'rotate-180' : '', 'h-5 w-5')}
-                                                aria-hidden="true"
-                                            />
-                                        </DisclosureButton>
-                                        <DisclosurePanel className="space-y-1">
-                                            {beritaAgenda.map((item) => (
-                                                <DisclosureButton
-                                                    key={item.name}
-                                                    as="a"
-                                                    href={item.href}
-                                                    className="flex w-full items-center justify-between pl-6 pr-2 text-sm text-gray-600 hover:bg-gray-50"
-                                                >
-                                                    {item.name}
-                                                </DisclosureButton>
-                                            ))}
-                                        </DisclosurePanel>
-                                    </>
-                                )}
-                            </Disclosure>
-                            <Disclosure as="div" className="space-y-1">
-                                <a
-                                    href="/kontak"
-                                    className="flex items-center justify-between w-full py-2 text-sm font-medium text-left text-gray-900 rounded-lg hover:bg-gray-50"
-                                >
-                                    Kontak
-                                </a>
-                            </Disclosure>
-                            <Disclosure as="div" className="space-y-1">
-                                <a 
-                                    href="/registrasi" 
-                                    className='flex items-center justify-between w-full py-2 text-sm font-medium text-left text-gray-900 rounded-lg hover:bg-gray-50'
-                                >
-                                    Registrasi
-                                </a>
-                            </Disclosure>
-                        </div>
-                        <div className="p-4">
-                            <a
-                                href="/login"
-                                className="block w-full py-2.5 text-center text-sm font-medium text-white bg-primary-secondary-800 rounded-lg hover:bg-primary-secondary-900"
-                            >
-                                Log in <span aria-hidden="true">&rarr;</span>
-                            </a>
-                        </div>
-                    </DialogPanel>
+                            </div>
+                        </DialogPanel>
+                    </Transition.Child>
                 </Dialog>
             </Transition.Root>
         </header>
