@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Navbar from '../components/Navbar';
+import LoginModal from '../components/LoginModal';
 import HeroSection from '../components/Home/HeroSection';
 import AdvantageSection from '../components/Home/AdvantageSection';
 import SupervisedBy from '../components/Home/SupervisedBy';
@@ -10,11 +11,21 @@ import CategorySection from '../components/Home/CategorySection';
 import JobListSection from '../components/Home/JobListSection';
 
 const Home = () => {
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+    const openModal = () => {
+        setIsModalOpen(true);
+    };
+
+    const closeModal = () => {
+        setIsModalOpen(false);
+    };
+
     return (
         <div className="App">
             {/* Navbar */}
             <header className="absolute inset-x-0 top-0 z-50">
-                <Navbar/>
+                <Navbar openModal={openModal}/>
             </header>
 
             {/* Hero Section */}
@@ -56,6 +67,7 @@ const Home = () => {
             <div className='absolute inset-x-0 z-50'>
                 <Footer/>
             </div>
+            {isModalOpen && <LoginModal closeModal={closeModal} isOpen={isModalOpen} />}
         </div>
     );
 }

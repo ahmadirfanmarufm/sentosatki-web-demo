@@ -53,9 +53,6 @@ const TestimonialSection = () => {
                     <p className="mt-5 text-3xl font-bold tracking-tight text-primary-400 sm:text-4xl">
                         INI KATA PELANGGAN KAMI
                     </p>
-                    <p className="mt-4 text-lg leading-8 text-gray-600">
-                        Simak pengalaman langsung dari pelanggan yang sukses dengan layanan kami. Mereka menceritakan bagaimana kami membantu mereka mencapai tujuan karir mereka di luar negeri.
-                    </p>
                 </div>
                 <div className="mx-auto max-w-screen-xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
                     <div ref={sliderRef} className="keen-slider">

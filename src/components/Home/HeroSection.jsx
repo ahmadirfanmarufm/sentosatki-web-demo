@@ -4,16 +4,13 @@ import passengerGettingAirplaneVideo from '../../assets/video-penerbangan-welder
 const HeroSection = () => {
     return (
         <div>
-            {/* Video Background */}
             <video className="absolute inset-0 w-full h-full object-cover z-0" autoPlay loop muted playsInline>
                 <source src={passengerGettingAirplaneVideo} type="video/mp4" />
                 Your browser does not support the video tag.
             </video>
 
-            {/* Semi Transparent White Background untuk Hero Section */}
             <div className="absolute inset-0 bg-white opacity-70 z-10" />
             <div className="relative flex flex-col items-center justify-center h-screen px-6 lg:px-8 z-20">
-                {/* Content */}
                 <div className="relative z-20 mx-auto max-w-2xl text-center text-white">
                     <h1 className="text-4xl sm:text-6xl text-primary-400 font-bold tracking-tight uppercase">
                         Employment Agency
@@ -28,8 +25,8 @@ const HeroSection = () => {
                         >
                             Daftar Diri Kamu
                         </a>
-                        <a href="/kontak" className="text-sm font-semibold text-primary-secondary-800">
-                            Temui Kami <span aria-hidden="true">→</span>
+                        <a href="/kontak" className="group flex items-center gap-2 text-sm text-primary-secondary-800 font-semibold hover:-translate-x-1 transition duration-300 md:w-auto">
+                            Temui Kami <span className="group-hover:translate-x-2 transition duration-300" aria-hidden="true">→</span>
                         </a>
                     </div>
                     <div className="hidden sm:mt-7 sm:flex sm:justify-center">
@@ -37,7 +34,7 @@ const HeroSection = () => {
                             Ketahui berita - berita dari kami.{' '}
                             <a href="/berita" className="font-semibold text-primary-secondary-800">
                                 <span className="absolute inset-0" aria-hidden="true" />
-                                Baca selengkapnya <span aria-hidden="true">&rarr;</span>
+                                Baca selengkapnya
                             </a>
                         </div>
                     </div>

@@ -41,9 +41,6 @@ const AdvantageSection = () => {
                     <p className="mt-5 text-3xl font-bold tracking-tight text-primary-400 sm:text-4xl">
                         KENAPA HARUS MEMILIH KAMI
                     </p>
-                    <p className="mt-4 text-lg leading-8 text-gray-600">
-                        PT. SENTOSAKARYA ADITAMA merupakan pilihan terbaik untuk layanan Penempatan Pekerja Migran Indonesia ke Luar Negeri.
-                    </p>
                 </div>
                 <div className="mx-auto mt-10 max-w-2xl border-t border-gray-200 pt-10 lg:max-w-4xl">
                     <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-10 lg:max-w-none lg:grid-cols-2 lg:gap-y-16">
