@@ -5,6 +5,7 @@ import { Editor } from '@tinymce/tinymce-react';
 import { nanoid } from 'nanoid';
 
 const AddNewsSection = () => {
+    const apiDatabaseUrl = import.meta.env.VITE_API_DATABASE;
     const apiKey = import.meta.env.VITE_TINYMCE_API_KEY;
     const [photoPreview, setPhotoPreview] = useState('');
     const [photoError, setPhotoError] = useState('');
@@ -16,7 +17,7 @@ const AddNewsSection = () => {
     useEffect(() => {
         const token = localStorage.getItem('token');
         if (token) {
-            axios.get('/database/verify', {
+            axios.get(`${apiDatabaseUrl}/verify`, {
                 headers: {
                     'Authorization': `Bearer ${token}`
                 }
@@ -48,8 +49,8 @@ const AddNewsSection = () => {
             formData.append('author_role', user ? user.jabatan : 'Writer');
             formData.append('author_image_url', user ? user.image : 'https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/jese-leos.png');
             
-            axios.post('/database/add-news', formData)
-            .then(response => {
+            axios.post(`${apiDatabaseUrl}/add-news`, formData)
+            .then(() => {
                 window.location.href = '/tambah-berita';
             })
             .catch(error => {

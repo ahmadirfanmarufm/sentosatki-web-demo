@@ -1,5 +1,6 @@
 import React, { useState, useEffect, Fragment } from 'react';
 import Logo from '../assets/logo-pt-sentosakarya-aditama.svg';
+import axios from 'axios';
 import {
     Dialog,
     DialogPanel,
@@ -40,6 +41,7 @@ const Navbar = ({ openModal }) => {
     const [activePage, setActivePage] = useState('/');
     const [user, setUser] = useState(JSON.parse(localStorage.getItem('user')) || null);
     const [isOpen, setIsOpen] = useState(false);
+    const apiDatabaseUrl = import.meta.env.VITE_API_DATABASE;
 
     const handleScroll = () => {
         if (window.scrollY > 80) {
@@ -54,14 +56,13 @@ const Navbar = ({ openModal }) => {
     useEffect(() => {
         const token = localStorage.getItem('token');
         if (token) {
-            fetch('/database/verify', {
-                method: 'GET',
+            axios.get(`${apiDatabaseUrl}/verify`, {
                 headers: {
                     'Authorization': `Bearer ${token}`
                 }
             })
-            .then(response => response.json())
-            .then(data => {
+            .then(response => {
+                const data = response.data;
                 localStorage.setItem('token', data.token);
                 localStorage.setItem('user', JSON.stringify(data));
                 setUser(data);

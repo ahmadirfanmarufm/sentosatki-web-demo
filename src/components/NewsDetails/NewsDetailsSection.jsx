@@ -13,8 +13,8 @@ const NewsDetailsSection = () => {
     const [loading, setLoading] = useState(true);
     const [showEditModal, setShowEditModal] = useState(false);
     const [showDeleteModal, setShowDeleteModal] = useState(false);
+    const apiDatabaseUrl = import.meta.env.VITE_API_DATABASE;
 
-    
     const deleteSelectedNews = () => {
         setShowDeleteModal(true);
     };
@@ -27,7 +27,7 @@ const NewsDetailsSection = () => {
     useEffect(() => {
         const token = localStorage.getItem('token');
         if (token) {
-            axios.get('/database/verify', {
+            axios.get(`${apiDatabaseUrl}/verify`, {
                 headers: {
                     'Authorization': `Bearer ${token}`
                 }
@@ -45,7 +45,7 @@ const NewsDetailsSection = () => {
     useEffect(() => {
         const fetchArticle = async () => {
             try {
-                const response = await axios.get(`/database/berita/${id}`);
+                const response = await axios.get(`${apiDatabaseUrl}/berita/${id}`);
                 setArticle(response.data);
                 setLoading(false);
             } catch (error) {
@@ -86,7 +86,7 @@ const NewsDetailsSection = () => {
 
     return (
         <div className="max-w-4xl mx-auto bg-white rounded-xl shadow-md overflow-hidden my-8 p-4 md:p-8">
-            <img className="w-full h-64 object-cover rounded-md mb-4" src={`/database/uploads/${article.image}`} alt={`${article.title} image`} />
+            <img className="w-full h-64 object-cover rounded-md mb-4" src={`${apiDatabaseUrl}/uploads/${article.image}`} alt={`${article.title} image`} />
             <div className="px-4 md:px-8">
                 <div className="uppercase tracking-wide text-sm text-primary-400 font-semibold mb-2">{formattedDate} - {article.category}</div>
                 <h1 className="text-2xl md:text-4xl leading-tight font-bold text-black mb-4">{article.title}</h1>
@@ -119,7 +119,7 @@ const NewsDetailsSection = () => {
                     setOpen={setShowEditModal}
                     onClose={() => setShowEditModal(false)}
                     refreshNews={() => {
-                        axios.get(`/database/berita/${id}`)
+                        axios.get(`${apiDatabaseUrl}/berita/${id}`)
                             .then(response => setArticle(response.data))
                             .catch(error => console.error('Error fetching news:', error));
                     }}

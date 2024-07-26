@@ -14,11 +14,13 @@ const RegistrationForm = ({ handleCheckboxChange, isCheckboxChecked }) => {
     const [selectedCountry, setSelectedCountry] = useState('');
     const [selectedSector, setSelectedSector] = useState('');
     const [selectedPosition, setSelectedPosition] = useState('');
+    const apiDatabaseUrl = import.meta.env.VITE_API_DATABASE;
+    const apiWilayahUrl = import.meta.env.VITE_API_WILAYAH;
 
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get('/database/api/jobs');
+                const response = await axios.get(`${apiDatabaseUrl}/api/jobs`);
                 setJobs(response.data);
             } catch (error) {
                 console.error('Error fetching data:', error);
@@ -31,7 +33,7 @@ const RegistrationForm = ({ handleCheckboxChange, isCheckboxChecked }) => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get('/api/wilayah/provinces.json');
+                const response = await axios.get(`${apiWilayahUrl}/provinces.json`);
                 const data = response.data.map(prov => ({
                     province_id: prov.id,
                     province_name: prov.name
@@ -57,7 +59,7 @@ const RegistrationForm = ({ handleCheckboxChange, isCheckboxChecked }) => {
 
         const fetchData = async () => {
             try {
-                const response = await axios.get(`/api/wilayah/regencies/${province_id}.json`);
+                const response = await axios.get(`${apiWilayahUrl}/regencies/${province_id}.json`);
                 const data = response.data.map(city => ({
                     city_id: city.id,
                     city_name: city.name
@@ -84,7 +86,7 @@ const RegistrationForm = ({ handleCheckboxChange, isCheckboxChecked }) => {
         
         const fetchData = async () => {
             try {
-                const response = await axios.get(`/api/wilayah/districts/${city_id}.json`);
+                const response = await axios.get(`${apiWilayahUrl}/districts/${city_id}.json`);
                 const data = response.data.map(district => ({
                     district_id: district.id,
                     district_name: district.name
@@ -110,7 +112,7 @@ const RegistrationForm = ({ handleCheckboxChange, isCheckboxChecked }) => {
         
         const fetchData = async() => {
             try {
-                const response = await axios.get(`/api/wilayah/villages/${district_id}.json`);
+                const response = await axios.get(`${apiWilayahUrl}/villages/${district_id}.json`);
                 const data = response.data.map(village => ({
                     village_id: village.id,
                     village_name: village.name

@@ -6,7 +6,6 @@ import bendera_korea_selatan from "../../assets/bendera_korea_selatan.svg";
 import bendera_malaysia from "../../assets/bendera_malaysia.svg";
 import bendera_singapura from "../../assets/bendera_singapura.svg";
 import bendera_taiwan from "../../assets/bendera_taiwan.svg";
-import Loading from '../Loading';
 
 const locations = [
     {
@@ -39,11 +38,12 @@ const CategorySection = () => {
     const [activeFilter, setActiveFilter] = useState('Jobs');
     const [jobs, setJobs] = useState([]);
     const [loadingJobs, setLoadingJobs] = useState(true);
+    const apiDatabaseUrl = import.meta.env.VITE_API_DATABASE;
 
     useEffect(() => {
         const fetchJobs = async () => {
             try {
-                const response = await axios.get('/database/api/jobs');
+                const response = await axios.get(`${apiDatabaseUrl}/api/jobs`);
                 setJobs(response.data);
             } catch (error) {
                 console.error('Error fetching jobs:', error);

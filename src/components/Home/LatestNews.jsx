@@ -4,11 +4,12 @@ import axios from 'axios';
 const LatestNews = () => {
     const [posts, setPosts] = useState([]);
     const [loadingNews, setLoadingNews] = useState(true);
+    const apiDatabaseUrl = import.meta.env.VITE_API_DATABASE;
 
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get('/database/berita');
+                const response = await axios.get(`${apiDatabaseUrl}/berita`);
                 setPosts(response.data);
             } catch (error) {
                 console.error('Error fetching news:', error);

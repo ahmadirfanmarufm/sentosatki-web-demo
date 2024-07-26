@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import { Dialog, DialogBackdrop, DialogPanel, DialogTitle } from '@headlessui/react';
 import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai';
 
@@ -7,26 +8,28 @@ const LoginModal = ({ isOpen, closeModal }) => {
     const [password, setPassword] = useState('');
     const [showPassword, setShowPassword] = useState(false);
     const [error, setError] = useState('');
+    const apiDatabaseUrl = import.meta.env.VITE_API_DATABASE;
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         setError('');
 
         try {
-            const response = await fetch('/database/login', {
-                method: 'POST',
+            const response = await axios.post(`${apiDatabaseUrl}/login`, {
+                username,
+                password
+            }, {
                 headers: {
                     'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ username, password }),
+                }
             });
 
-            if (!response.ok) {
-                const errorData = await response.json();
+            if (!response.status === 200) {
+                const errorData = await response.data;
                 throw new Error(errorData.message);
             }
 
-            const data = await response.json();
+            const data = await response.data;
             localStorage.setItem('token', data.token);
             window.location.href = "/";
             closeModal();

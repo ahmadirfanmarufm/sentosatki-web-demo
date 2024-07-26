@@ -18,11 +18,12 @@ import AddNews from './pages/AddNews';
 
 const App = () => {
   const [user, setUser] = useState(JSON.parse(localStorage.getItem('user')) || null);
+  const apiDatabaseUrl = import.meta.env.VITE_API_DATABASE;
 
   useEffect(() => {
     const token = localStorage.getItem('token');
     if (token) {
-        axios.get('/database/verify', {
+        axios.get(`${apiDatabaseUrl}/verify`, {
             headers: {
                 'Authorization': `Bearer ${token}`
             }

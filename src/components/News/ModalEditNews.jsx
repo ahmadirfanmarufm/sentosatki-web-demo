@@ -6,13 +6,14 @@ import { Dialog, DialogBackdrop, DialogPanel, DialogTitle } from '@headlessui/re
 
 const ModalEditNews = ({ selectedNewsId, onClose, refreshNews, isOpen, setOpen }) => {
     const apiKey = import.meta.env.VITE_TINYMCE_API_KEY;
+    const apiDatabaseUrl = import.meta.env.VITE_API_DATABASE;
     const { register, handleSubmit, setValue } = useForm();
     const [photoError, setPhotoError] = useState('');
     const [editorContent, setEditorContent] = useState('');
     const fileInputRef = useRef(null);
 
     useEffect(() => {
-        axios.get(`/database/berita/${selectedNewsId}`)
+        axios.get(`${apiDatabaseUrl}/berita/${selectedNewsId}`)
             .then(response => {
                 const data = response.data;
                 setValue('title', data.title);
@@ -32,7 +33,7 @@ const ModalEditNews = ({ selectedNewsId, onClose, refreshNews, isOpen, setOpen }
         if (fileInputRef.current.files[0]) {
             formDataToSend.append('image', fileInputRef.current.files[0]);
         }
-        axios.put(`/database/edit-news/${selectedNewsId}`, formDataToSend)
+        axios.put(`${apiDatabaseUrl}/edit-news/${selectedNewsId}`, formDataToSend)
         .then(response => {
             if (response.status !== 200) {
                 throw new Error('Failed to edit news');

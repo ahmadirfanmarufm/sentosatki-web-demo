@@ -15,11 +15,12 @@ const NewsList = () => {
     const [filterCategory, setFilterCategory] = useState('');
     const [searchKeyword, setSearchKeyword] = useState('');
     const [showDeleteModal, setShowDeleteModal] = useState(false);
+    const apiDatabaseUrl = import.meta.env.VITE_API_DATABASE;
 
     useEffect(() => {
         const token = localStorage.getItem('token');
         if (token) {
-            axios.get('/database/verify', {
+            axios.get(`${apiDatabaseUrl}/verify`, {
                 headers: {
                     'Authorization': `Bearer ${token}`
                 }
@@ -35,7 +36,7 @@ const NewsList = () => {
     }, []);
 
     useEffect(() => {
-        axios.get('/database/berita')
+        axios.get(`${apiDatabaseUrl}/berita`)
             .then(response => setPosts(response.data))
             .catch(error => console.error('Error fetching news:', error));
     }, []);
@@ -137,15 +138,15 @@ const NewsList = () => {
                                             <>
                                                 <button
                                                     onClick={editSelectedNews}
-                                                    className="bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 rounded-md ml-2 mb-1"
+                                                    className="bg-primary-secondary-800 hover:bg-primary-secondary-900 text-white px-3 py-1 rounded-md ml-2 mb-1"
                                                 >
-                                                    Edit
+                                                    EDIT
                                                 </button>
                                                 <button
                                                     onClick={deleteSelectedNews}
                                                     className="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded-md ml-2"
                                                 >
-                                                    Delete
+                                                    DELETE
                                                 </button>
                                             </>
                                         )}
@@ -154,7 +155,7 @@ const NewsList = () => {
                             )}  
                         <a href={`/berita/${item.id}`} className="md:flex">
                             <div className="md:flex-shrink-0">
-                                <img className="h-full w-full object-cover md:w-48 rounded-md" src={`/database/uploads/${item.image}`} alt={item.title} />
+                                <img className="h-full w-full object-cover md:w-48 rounded-md" src={`${apiDatabaseUrl}/uploads/${item.image}`} alt={item.title} />
                             </div>
                             <div className="p-8">
                                 <div className="uppercase tracking-wide text-sm text-primary-400 font-semibold text-left">{item.category} - {formatDate(item.date)}</div>
@@ -213,7 +214,7 @@ const NewsList = () => {
                     setOpen={setShowEditModal}
                     onClose={() => setShowEditModal(false)}
                     refreshNews={() => {
-                        axios.get('/database/berita')
+                        axios.get(`${apiDatabaseUrl}/berita`)
                             .then(response => response.json())
                             .then(data => setPosts(data))
                             .catch(error => console.error('Error fetching news:', error));

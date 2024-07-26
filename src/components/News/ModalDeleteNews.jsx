@@ -4,13 +4,14 @@ import { Dialog, DialogBackdrop, DialogPanel, DialogTitle } from '@headlessui/re
 import { ExclamationTriangleIcon } from '@heroicons/react/24/outline'
 
 const ModalDeleteNews = ({ setOpen, open, selectedNewsId, setPosts }) => {
+    const apiDatabaseUrl = import.meta.env.VITE_API_DATABASE;
     const confirmDelete = () => {
-        axios.delete(`/database/delete-news/${selectedNewsId}`)
+        axios.delete(`${apiDatabaseUrl}/delete-news/${selectedNewsId}`)
             .then(() => {
                 if (window.location.pathname.includes(`/berita/${selectedNewsId}`)) {
                     window.location.href = "/berita";
                 } else if (window.location.pathname.includes("/berita")) {
-                    axios.get('/database/berita')
+                    axios.get(`${apiDatabaseUrl}/berita`)
                         .then(response => {
                             setPosts(response.data);
                         })

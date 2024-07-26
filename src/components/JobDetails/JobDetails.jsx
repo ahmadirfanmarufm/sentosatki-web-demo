@@ -24,6 +24,8 @@ const JobDetail = () => {
     const [loadingExchangeRates, setLoadingExchangeRates] = useState(true);
     const [errorFetching, setErrorFetching] = useState(null);
     const [isDataIncomplete, setIsDataIncomplete] = useState(false);
+    const apiDatabaseUrl = import.meta.env.VITE_API_DATABASE;
+    const apiCurrencyConvertUrl = import.meta.env.VITE_API_CURRENCYCONVERT;
     
     const formatDate = (dateString) => {
         const date = new Date(dateString);
@@ -37,7 +39,7 @@ const JobDetail = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get('/api/currencyconvert');
+                const response = await axios.get(apiCurrencyConvertUrl);
                 setExchangeRates(response.data.rates);
             } catch (error) {
                 console.error('Error fetching exchange rates:', error);
@@ -52,7 +54,7 @@ const JobDetail = () => {
     useEffect(() => {
         const fetchJobDetails = async () => {
             try {
-                const response = await axios.get(`/database/api/jobs/${id}`);
+                const response = await axios.get(`${apiDatabaseUrl}/api/jobs/${id}`);
                 if (response.status === 404) {
                     setErrorFetching('Job Not Found');
                     setLoadingJobs(false);
