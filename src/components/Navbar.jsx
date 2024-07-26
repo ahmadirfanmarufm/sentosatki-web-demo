@@ -44,7 +44,6 @@ const Navbar = ({ openModal }) => {
     const apiDatabaseUrl = import.meta.env.VITE_API_DATABASE;
 
     const handleScroll = () => {
-        console.log(window.scrollY);
         if (window.scrollY > 30) {
             setIsTransparent(false);
             setIsScrolled(true);

@@ -78,3 +78,35 @@ body {
 .blur-lg {
   backdrop-filter: blur(10px);
 }
+
+.news-content h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+.news-content h2 {
+  font-size: 2rem;
+  font-weight: 700;
+}
+.news-content h3 {
+  font-size: 1.75rem;
+  font-weight: 700;
+}
+.news-content h4 {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+.news-content h5 {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+.news-content h6 {
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.news-content blockquote {
+  border-left: 4px solid #ddd;
+  margin: 1rem 0;
+  padding-left: 1rem;
+  color: #555;
+}

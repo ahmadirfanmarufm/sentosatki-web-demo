@@ -5,6 +5,7 @@ import Blank from './Blank';
 import Loading from '../Loading';
 import ModalDeleteNews from '../News/ModalDeleteNews';
 import ModalEditNews from '../News/ModalEditNews';
+import parse from 'html-react-parser';
 
 const NewsDetailsSection = () => {
     const { id } = useParams();
@@ -47,6 +48,7 @@ const NewsDetailsSection = () => {
             try {
                 const response = await axios.get(`${apiDatabaseUrl}/berita/${id}`);
                 setArticle(response.data);
+                console.log(article.content);
                 setLoading(false);
             } catch (error) {
                 console.error("Error fetching the article:", error);
@@ -90,7 +92,7 @@ const NewsDetailsSection = () => {
             <div className="px-4 md:px-8">
                 <div className="uppercase tracking-wide text-sm text-primary-400 font-semibold mb-2">{formattedDate} - {article.category}</div>
                 <h1 className="text-2xl md:text-4xl leading-tight font-bold text-black mb-4">{article.title}</h1>
-                <p className="text-gray-600 text-left leading-relaxed" dangerouslySetInnerHTML={{ __html: article.content }}></p>
+                <div className="news-content text-left text-gray-600 leading-relaxed">{parse(article.content)}</div>
             </div>
             {user && user.jabatan.includes("Writter") && (
                 <div className='py-5'>
