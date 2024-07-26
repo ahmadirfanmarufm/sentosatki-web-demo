@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import bendera_hongkong from "../../assets/bendera_hongkong.svg";
 import bendera_jepang from "../../assets/bendera_jepang.svg";
 import bendera_korea_selatan from "../../assets/bendera_korea_selatan.svg";
 import bendera_malaysia from "../../assets/bendera_malaysia.svg";
 import bendera_singapura from "../../assets/bendera_singapura.svg";
 import bendera_taiwan from "../../assets/bendera_taiwan.svg";
+
+const bendera_hongkong = new URL('../../assets/bendera_hongkong.svg', import.meta.url).href;
 
 const locations = [
     {
