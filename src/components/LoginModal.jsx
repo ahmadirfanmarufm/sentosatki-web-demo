@@ -34,7 +34,11 @@ const LoginModal = ({ isOpen, closeModal }) => {
             window.location.href = "/";
             closeModal();
         } catch (error) {
-            setError(error.message);
+            if(error.response && error.response.data && error.response.data.message) {
+                setError(error.response.data.message);
+            } else {
+                setError(error.message);
+            }
         }
     };
 
