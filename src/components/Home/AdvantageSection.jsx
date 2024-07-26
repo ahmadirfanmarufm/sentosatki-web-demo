@@ -21,7 +21,7 @@ const features = [
     {
         name: 'Terpercaya',
         description:
-            'Di terpercaya berdiri sejak tahun 1999 dengan gaya manajemen moderen sesuai perkembangan jaman. Kami merupakan partner yang dapat dipercaya dalam memenuhi kebutuhan Penempatan Pekerja Migran.',
+            'Berdiri sejak tahun 1999 dengan gaya manajemen moderen sesuai perkembangan zaman. Kami merupakan partner yang dapat dipercaya dalam memenuhi kebutuhan Penempatan Pekerja Migran.',
         icon: HandThumbUpIcon,
     },
     {

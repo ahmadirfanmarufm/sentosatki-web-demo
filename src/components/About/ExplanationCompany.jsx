@@ -13,7 +13,7 @@ const ExplanationCompany = () => {
                     <p className="text-gray-600">
                         Penempatan Pekerja Migran Indonesia dengan fokus pada kesejahteraan dan keamanan, didukung oleh KEMNAKER dan BP2MI.
                         Kami memberikan penempatan kerja yang aman dan berkualitas, membangun jembatan antara pekerja migran dengan peluang internasional.
-                        Hubungi kami sekarang untuk memulai perjalanan Kamu ke luar negeri dengan kesempatan kerja yang menjanjikan.
+                        Hubungi kami sekarang untuk memulai perjalanan Kamu ke Luar Negeri dengan kesempatan kerja yang menjanjikan.
                     </p>
                     <div className="mt-7 sm:flex sm:justify-center">
                         <a
