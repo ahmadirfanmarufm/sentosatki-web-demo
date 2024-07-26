@@ -52,7 +52,7 @@ const LatestNews = () => {
                             {posts.slice(0, 3).map((post) => (
                                 <article key={post.id} className="flex max-w-xl flex-col items-start justify-between">
                                     <div className="flex items-center gap-x-4">
-                                        <img src={`/database/uploads/${post.image}`} className="rounded-xl mb-4 aspect-video object-cover shadow-lg w-full h-auto" alt="Post Image"/>
+                                        <img src={`${apiDatabaseUrl}/uploads/${post.image}`} className="rounded-xl mb-4 aspect-video object-cover shadow-lg w-full h-auto" alt="Post Image"/>
                                     </div>
                                     <div className="flex items-center gap-x-4 text-xs">
                                         <p className="text-gray-500">
