@@ -1,12 +1,16 @@
 body {
-  font-family: "Twemoji Country Flags", "Helvetica", "Comic Sans", serif;
+  font-family: 'Twemoji Country Flags', 'Helvetica', 'Comic Sans', serif;
 }
 
 #root {
-  max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
   text-align: center;
+}
+
+input[type="date"] {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
 }
 
 .logo {
@@ -20,6 +24,7 @@ body {
 }
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
+  -webkit-filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
 @keyframes logo-spin {
@@ -37,7 +42,7 @@ body {
   }
 }
 
-@keyframes slideInDown {
+@keyframes slide-in {
   0% {
     transform: translateY(-100%);
     opacity: 0;
@@ -48,7 +53,7 @@ body {
   }
 }
 
-@keyframes slideOutUp {
+@keyframes slide-out {
   0% {
     transform: translateY(0);
     opacity: 1;
@@ -57,6 +62,25 @@ body {
     transform: translateY(-100%);
     opacity: 0;
   }
+}
+
+#google_translate_element {
+  z-index: 1;
+  margin-left: auto;
+  margin-right: 2rem;
+}
+
+.VIpgJd-ZVi9od-ORHb-OEVmcd {
+  margin-top: 0px;
+}
+
+.VIpgJd-ZVi9od-ORHb {
+  display: none;
+  top: initial;
+  bottom: 0;
+}
+.VIpgJd-ZVi9od-l4eHX-hSRGPd {
+  display: none;
 }
 
 .animate-slide-in-down {
@@ -77,6 +101,16 @@ body {
 
 .blur-lg {
   backdrop-filter: blur(10px);
+}
+
+.custom-height-1 {
+  height: 12rem; /* 48 */
+}
+.custom-height-2 {
+  height: 16rem; /* 64 */
+}
+.custom-height-3 {
+  height: 20rem; /* 80 */
 }
 
 .news-content h1 {

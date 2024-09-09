@@ -1,38 +1,51 @@
-import React, { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Navbar from '../components/Navbar';
 import LoginModal from '../components/LoginModal';
 import Footer from '../components/Footer';
 import AddNewsSection from '../components/AddNews/AddNewsSection';
 
 const AddNews = () => {
-    const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
-    const openModal = () => {
-        setIsModalOpen(true);
-    };
+  useEffect(() => {
+    document.title = 'TAMBAH BERITA - PT. SENTOSAKARYA ADITAMA';
+  }, []);
 
-    const closeModal = () => {
-        setIsModalOpen(false);
-    };
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
 
-    return(
-        <div className="App">
-            {/* Navbar */}
-            <header className="absolute inset-x-0 top-0 z-50">
-                <Navbar openModal={openModal}/>
-            </header>
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
 
-            {/* Tambah Berita Section */}
-            <AddNewsSection/>
+  return (
+    <div className="App">
+      {/* Navbar */}
+      <header className="absolute inset-x-0 top-0 z-50">
+        <Navbar openModal={openModal} />
+      </header>
 
-            {/* Footer */}
-            <div className='absolute inset-x-0 z-50'>
-                <Footer/>
-            </div>
+      {/* Tambah Berita Section */}
+      <AddNewsSection />
 
-            {isModalOpen && <LoginModal closeModal={closeModal} isOpen={isModalOpen} />}
-        </div>
-    )
-}
+      {/* Footer */}
+      <div className="absolute inset-x-0 z-50">
+        <Footer />
+      </div>
+
+      {isModalOpen && (
+        <LoginModal closeModal={closeModal} isOpen={isModalOpen} />
+      )}
+
+      <div className="fixed bottom-0 left-0 p-4 z-50">
+        <div
+          id="google_translate_element"
+          className="bg-white border border-gray-300 p-2 rounded-lg shadow-lg"
+        ></div>
+      </div>
+    </div>
+  );
+};
 
 export default AddNews;

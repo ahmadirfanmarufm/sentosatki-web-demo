@@ -10,12 +10,13 @@ module.exports = {
   ignorePatterns: ['dist', '.eslintrc.cjs', 'src/tinymce'],
   parserOptions: { ecmaVersion: 'latest', sourceType: 'module' },
   settings: { react: { version: '18.2' } },
-  plugins: ['react-refresh'],
+  plugins: ['react', 'react-refresh'],
   rules: {
+    'react/react-in-jsx-scope': 'off',
     'react/jsx-no-target-blank': 'off',
     'react-refresh/only-export-components': [
       'warn',
       { allowConstantExport: true },
-    ],
+    ]
   },
 }

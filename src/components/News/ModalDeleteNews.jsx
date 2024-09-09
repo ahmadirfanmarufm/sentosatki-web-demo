@@ -1,15 +1,17 @@
-import React from 'react';
+import PropTypes from 'prop-types';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { Dialog, DialogBackdrop, DialogPanel, DialogTitle } from '@headlessui/react'
 import { ExclamationTriangleIcon } from '@heroicons/react/24/outline'
 
 const ModalDeleteNews = ({ setOpen, open, selectedNewsId, setPosts }) => {
+    const navigate = useNavigate();
     const apiDatabaseUrl = import.meta.env.VITE_API_DATABASE;
     const confirmDelete = () => {
         axios.delete(`${apiDatabaseUrl}/delete-news/${selectedNewsId}`)
             .then(() => {
                 if (window.location.pathname.includes(`/berita/${selectedNewsId}`)) {
-                    window.location.href = "/berita";
+                    navigate("/berita");
                 } else if (window.location.pathname.includes("/berita")) {
                     axios.get(`${apiDatabaseUrl}/berita`)
                         .then(response => {
@@ -75,5 +77,12 @@ const ModalDeleteNews = ({ setOpen, open, selectedNewsId, setPosts }) => {
         </Dialog>
     )
 }
+
+ModalDeleteNews.propTypes = {
+    setOpen: PropTypes.func.isRequired,
+    open: PropTypes.bool.isRequired,
+    selectedNewsId: PropTypes.string.isRequired,
+    setPosts: PropTypes.func.isRequired,
+};
 
 export default ModalDeleteNews;

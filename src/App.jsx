@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import axios from 'axios';
-import './App.css'
-import Home from './pages/Home'
+import './App.css';
+import Home from './pages/Home';
 import About from './pages/About';
 import GaleryPhoto from './pages/GaleryPhoto';
 import GaleryVideo from './pages/GaleryVideo';
@@ -15,50 +15,67 @@ import JobDetail from './pages/JobDetail';
 import NewsDetails from './pages/NewsDetails';
 import PageNotFound from './pages/404';
 import AddNews from './pages/AddNews';
+import Bantuan from './pages/Bantuan';
+import HelpTopic from './pages/HelpTopic';
+import Pendaftaran from './pages/Pendaftaran';
+import RecoveryAccount from './pages/RecoveryAccount';
 
 const App = () => {
-  const [user, setUser] = useState(JSON.parse(localStorage.getItem('user')) || null);
+  const [user, setUser] = useState(
+    JSON.parse(localStorage.getItem('user')) || null,
+  );
   const apiDatabaseUrl = import.meta.env.VITE_API_DATABASE;
 
   useEffect(() => {
     const token = localStorage.getItem('token');
     if (token) {
-        axios.get(`${apiDatabaseUrl}/verify`, {
-            headers: {
-                'Authorization': `Bearer ${token}`
-            }
+      axios
+        .get(`${apiDatabaseUrl}/verify`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
         })
-        .then(response => {
-            const data = response.data;
-            localStorage.setItem('token', data.token);
-            localStorage.setItem('user', JSON.stringify(data));
-            setUser(data);
+        .then((response) => {
+          const data = response.data;
+          localStorage.setItem('token', data.token);
+          localStorage.setItem('user', JSON.stringify(data));
+          setUser(data);
         })
-        .catch(error => console.error('Error:', error));
+        .catch((error) => console.error('Error:', error));
     }
-}, []);
+  }, [apiDatabaseUrl]);
 
   return (
     <Router>
       <Routes>
-        <Route path='/' element={<Home/>}></Route>
-        <Route path='/tentang-kami' element={<About/>}></Route>
-        <Route path='/galeri-foto' element={<GaleryPhoto/>}></Route>
-        <Route path='/galeri-video' element={<GaleryVideo/>}></Route>
-        <Route path='/download' element={<Download/>}></Route>
-        <Route path='/job-list' element={<JobList/>}></Route>
-        <Route path='/job-detail/:id' element={<JobDetail/>}></Route>
-        <Route path='/berita' element={<News/>}></Route>
-        <Route path='/berita/:id' element={<NewsDetails/>}></Route>
-        {user && user.jabatan.includes("Writter") && (
-          <Route path='/tambah-berita' element={<AddNews/>}></Route>
+        <Route path="/" element={<Home />}></Route>
+        <Route path="/home" element={<Home />}></Route>
+        <Route path="/beranda" element={<Home />}></Route>
+        <Route path="/tentang-kami" element={<About />}></Route>
+        <Route path="/galeri-foto" element={<GaleryPhoto />}></Route>
+        <Route path="/galeri-video" element={<GaleryVideo />}></Route>
+        <Route path="/download" element={<Download />}></Route>
+        <Route path="/job-list" element={<JobList />}></Route>
+        <Route path="/job-detail/:id" element={<JobDetail />}></Route>
+        <Route path="/berita" element={<News />}></Route>
+        <Route path="/berita/:id" element={<NewsDetails />}></Route>
+        {user && user.jabatan.includes('Writter') && (
+          <Route path="/tambah-berita" element={<AddNews />}></Route>
         )}
-        <Route path='/kontak' element={<Contact/>}></Route>
-        <Route path='/registrasi' element={<Registration/>}></Route>
-        <Route path='*' element={<PageNotFound/>}></Route>
+        <Route path="/kontak" element={<Contact />}></Route>
+        <Route path="/pendaftaran" element={<Pendaftaran />}></Route>
+        <Route path="/registrasi" element={<Registration />}></Route>
+        <Route path="/pemulihan-akun" element={<RecoveryAccount />}></Route>
+        <Route path="/bantuan" element={<Bantuan />}></Route>
+        <Route path="/bantuan/:topicId" element={<HelpTopic />}></Route>
+        <Route
+          path="/bantuan/:topicId/:subtopicId"
+          element={<HelpTopic />}
+        ></Route>
+        <Route path="*" element={<PageNotFound />}></Route>
       </Routes>
     </Router>
-  )
-}
+  );
+};
 
-export default App
+export default App;

@@ -29,7 +29,39 @@ export default {
           800: '#1D2E57',
           900: '#151F41',
         },
+      }, 
+      keyframes: {
+        "fade-in-down": {
+            "0%": {
+                opacity: 0,
+                transform: "translateY(0)",
+            },
+            "100%": {
+                opacity: 1,
+                transform: "translateY(0)",
+            },
+        },
+        "fly-out-down": {
+            "0%": {
+                transitionTimingFunction: "cubic-bezier(0.215, 0.61, 0.355, 1)",
+            },
+            "20%": {
+                transform: "translate3d(0, -10px, 0)",
+            },
+            "40%, 45%": {
+                opacity: "1",
+                transform: "translate3d(0, 20px, 0)",
+            },
+            "100%": {
+                opacity: "0",
+                transform: "translate3d(0, -2000px, 0)",
+            },
+        },
       },
+      animation: {
+        fadeindown: "fade-in-down 0.5s ease-out forwards",
+        flyoutdown: "fly-out-down 0.5s ease-in-out 0.25s 1"
+      }
     },
   },
   plugins: [],

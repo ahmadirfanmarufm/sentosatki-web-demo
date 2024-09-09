@@ -1,47 +1,80 @@
-import React from 'react';
-import passengerGettingAirplaneVideo from '../../assets/video-penerbangan-welder-koreaselatan.mp4';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Link } from 'react-router-dom';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+
+import { Autoplay, Pagination, Navigation } from 'swiper/modules';
+import image1 from '../../assets/employment-2.png';
+import image2 from '../../assets/world.jpg';
+import image3 from '../../assets/happy-work.jpeg';
+import image4 from '../../assets/analythic-chart.jpg';
+
+const backgroundData = [
+  {
+    image: image1,
+    title: 'Agen Tenaga Kerja Terbaik untuk Karir Internasional Kamu',
+    description: 'Kami membantu Kamu membuka Peluang Kerja ke Berbagai Negara',
+  },
+  {
+    image: image2,
+    title: 'Temukan Peluang Terbaik untuk Karir Kamu dari Berbagai Negara',
+    description:
+      'Temukan informasi lowongan pekerjaan dari Berbagai negara yang telah terverifikasi dan sesuai dengan Minat Kamu',
+  },
+  {
+    image: image3,
+    title: 'Kesempatan Karir Besar Menanti Kamu di Luar Negeri',
+    description:
+      'Dengan pengalaman dan dedikasi Kami, Kami membantu Kamu mencapai kesuksesan di Pasar Kerja Global',
+  },
+  {
+    image: image4,
+    title: 'Peluang Emas untuk Karir Profesional di Luar Negeri',
+    description:
+      'Kamu akan mendapatkan Peluang Kerja di Berbagai Negara dengan Bantuan Kami',
+  },
+];
 
 const HeroSection = () => {
-    return (
-        <div>
-            <video className="absolute inset-0 w-full h-full object-cover z-0" autoPlay loop muted playsInline>
-                <source src={passengerGettingAirplaneVideo} type="video/mp4" />
-                Your browser does not support the video tag.
-            </video>
-
-            <div className="absolute inset-0 bg-white opacity-70 z-10" />
-            <div className="relative flex flex-col items-center justify-center h-screen px-6 lg:px-8 z-20">
-                <div className="relative z-20 mx-auto max-w-2xl text-center text-white">
-                    <h1 className="text-4xl sm:text-6xl text-primary-400 font-bold tracking-tight uppercase">
-                        Employment Agency
-                    </h1>
-                    <p className="mt-6 text-lg sm:text-xl text-semibold text-primary-secondary-800 leading-8">
-                        PT. SENTOSAKARYA ADITAMA adalah perusahaan yang berfokus pada Penempatan Pekerja Migran Indonesia ke Luar Negeri. Kami berdedikasi untuk memberikan layanan terbaik dan memastikan kesejahteraan tenaga kerja kami.
-                    </p>
-                    <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
-                        <a
-                            href="/registrasi"
-                            className="rounded-md bg-primary-secondary-800 px-4 py-3 text-sm font-semibold shadow-lg hover:bg-primary-secondary-900 focus:outline-none focus:ring-4 focus:ring-primary-secondary-600"
-                        >
-                            Daftar Diri Kamu
-                        </a>
-                        <a href="/kontak" className="group flex items-center gap-2 text-sm text-primary-secondary-800 font-semibold hover:-translate-x-1 transition duration-300 md:w-auto">
-                            Temui Kami <span className="group-hover:translate-x-2 transition duration-300" aria-hidden="true">→</span>
-                        </a>
-                    </div>
-                    <div className="hidden sm:mt-7 sm:flex sm:justify-center">
-                        <div className="relative rounded-full px-3 py-1 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
-                            Ketahui berita - berita dari kami.{' '}
-                            <a href="/berita" className="font-semibold text-primary-secondary-800">
-                                <span className="absolute inset-0" aria-hidden="true" />
-                                Baca selengkapnya
-                            </a>
-                        </div>
-                    </div>
+  return (
+    <section className="relative inset-0 w-full h-full md:h-[50vh] overflow-hidden mt-24 object-cover z-0">
+      <Swiper
+        autoplay={{ delay: 10000 }}
+        loop
+        modules={[Autoplay, Pagination, Navigation]}
+        className="relative w-full h-full"
+      >
+        {backgroundData.map((slide, index) => (
+          <SwiperSlide key={index} className="relative w-full h-full">
+            <div className="relative w-full h-full">
+              <img
+                src={slide.image}
+                alt={`Slide ${index + 1}`}
+                className="w-full h-full object-cover z-10 order-1 md:order-2"
+              />
+              <div className="relative md:absolute inset-0 flex flex-col items-left justify-center px-4 sm:px-6 lg:px-8 md:bg-black/40 w-full order-2 md:order-1">
+                <div className="p-4 md:p-0 rounded md:rounded-none max-w-3xl md:max-w-md lg:max-w-3xl text-left md:text-left">
+                  <h2 className="text-gray-800 sm:text-white text-xl sm:text-2xl md:text-3xl lg:text-5xl font-bold mb-2">
+                    {slide.title}
+                  </h2>
+                  <p className="text-gray-800 sm:text-white text-sm sm:text-base md:text-lg lg:text-xl mb-6">
+                    {slide.description}
+                  </p>
+                  <Link
+                    to="/job-list"
+                    className="inline-block bg-primary-400 text-white px-6 py-3 rounded-md text-sm font-semibold shadow-lg hover:bg-primary-500 focus:outline-none focus:ring-4 focus:ring-primary-600"
+                  >
+                    Lihat Lowongan Pekerjaan
+                  </Link>
                 </div>
+              </div>
             </div>
-        </div>
-    );
-}
+          </SwiperSlide>
+        ))}
+      </Swiper>
+    </section>
+  );
+};
 
 export default HeroSection;
